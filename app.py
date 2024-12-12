@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
-API_KEY = ""
+API_KEY = "put your API key here"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def call_groq_api(content, system_prompt="Summarize the following content"):
