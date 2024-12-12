@@ -63,12 +63,8 @@ Usage
 3. **Generate Questions**: Specify the number of questions you want to generate, and they will appear on the results page.
 4. **Chat with PDF**: Use the chat interface to ask questions about the uploaded content and get answers.
 API Key
-This project uses the Groq Cloud API for summarization, question generation, and answering queries. You must have a valid API key to use these features. Replace the placeholder `API_KEY` in `app.py` with your own key.
-Screenshots
-### Home Page
-![Home Page](path/to/homepage-screenshot.png)
-### Results Page
-![Results Page](path/to/resultpage-screenshot.png)
+
+
 Future Enhancements
 - Support for OCR to handle image-based PDFs.
 - Improved error handling for invalid or corrupted PDFs.
