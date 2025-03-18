@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            background-color: #343a40;
+            padding-top: 20px;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h4 class="text-center">Staff Dashboard</h4>
+        <a href="#" id="quizGeneratorLink">Quiz Generator</a>
+        <a href="{{ url_for('generate_dynamic_questions') }}">Student Details</a>
+        <a href="{{ url_for('chat_with_pdf') }}">Assignments</a>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+
+    <div class="content" id="contentArea">
+        <h2>Welcome, {{ user }} (Staff)</h2>
+        <p>This is your staff dashboard. You can upload PDFs, generate questions, and chat with the content.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // When "Quiz Generator" is clicked
+            $("#quizGeneratorLink").on("click", function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                $("#contentArea").load("{{ url_for('index') }}"); // Dynamically load index.html into the content area
+            });
+        });
+    </script>
+</body>
+</html>

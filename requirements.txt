@@ -3,3 +3,7 @@ Flask-Session==0.4.0
 PyPDF2==3.0.1
 requests==2.31.0
 Werkzeug==2.3.7
+flask flask-session
+
+//API
+//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

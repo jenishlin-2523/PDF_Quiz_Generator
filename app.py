@@ -10,11 +10,11 @@ app.config['UPLOAD_FOLDER'] = 'uploads/'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Configure session settings
-app.config['SECRET_KEY'] = 'your_secret_key_here'
+app.config['SECRET_KEY'] = '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'
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
-API_KEY = "put your API key here"
+API_KEY = "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"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 def call_groq_api(content, system_prompt="Summarize the following content"):

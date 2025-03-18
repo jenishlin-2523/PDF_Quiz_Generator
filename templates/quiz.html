@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="text-center text-primary">Take the Quiz</h2>
+                
+                <!-- Display different messages based on quiz origin -->
+                {% if from_dashboard %}
+                    <p class="text-center">Welcome to your quiz from the student dashboard!</p>
+                {% else %}
+                    <p class="text-center">This quiz was dynamically generated for you.</p>
+                {% endif %}
+                
+                <form action="/submit_quiz" method="post">
+                    {% for item in questions %}
+                        <div class="mb-4">
+                            <p><strong>{{ item['question'] }}</strong></p>
+                            {% for key, option in item['options'].items() %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ item['question'] }}" value="{{ key }}" required>
+                                    <label class="form-check-label">{{ key }}. {{ option }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit Answers</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (for responsive design) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
